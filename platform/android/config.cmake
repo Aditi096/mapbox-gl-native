@@ -190,16 +190,6 @@ add_library(mbgl-android STATIC
     platform/android/src/style/sources/image_source.cpp
     platform/android/src/style/sources/raster_dem_source.cpp
     platform/android/src/style/sources/raster_dem_source.hpp
-    platform/android/src/style/functions/stop.cpp
-    platform/android/src/style/functions/stop.hpp
-    platform/android/src/style/functions/categorical_stops.cpp
-    platform/android/src/style/functions/categorical_stops.hpp
-    platform/android/src/style/functions/exponential_stops.cpp
-    platform/android/src/style/functions/exponential_stops.hpp
-    platform/android/src/style/functions/identity_stops.cpp
-    platform/android/src/style/functions/identity_stops.hpp
-    platform/android/src/style/functions/interval_stops.cpp
-    platform/android/src/style/functions/interval_stops.hpp
     platform/android/src/style/position.cpp
     platform/android/src/style/position.hpp
     platform/android/src/style/light.cpp
