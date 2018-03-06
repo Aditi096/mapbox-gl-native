@@ -50,7 +50,13 @@
         CGFloat alpha;
 #if !TARGET_OS_IPHONE
         // CSS uses the sRGB color space.
-        linkColor = [linkColor colorUsingColorSpace:[NSColorSpace sRGBColorSpace]];
+        if ([NSColor redColor].colorSpaceName == NSCalibratedRGBColorSpace) {
+            // As of OS X 10.8 Mountain Lion, device RGB is equivalent to sRGB.
+            // https://download.developer.apple.com/wwdc_2012/wwdc_2012_session_pdfs/session_523__best_practices_for_color_management.pdf#page=137
+            linkColor = [linkColor colorUsingColorSpaceName:NSDeviceRGBColorSpace];
+        } else {
+            linkColor = [linkColor colorUsingColorSpace:[NSColorSpace sRGBColorSpace]];
+        }
 #endif
         [linkColor getRed:&red green:&green blue:&blue alpha:&alpha];
         [css appendFormat:
