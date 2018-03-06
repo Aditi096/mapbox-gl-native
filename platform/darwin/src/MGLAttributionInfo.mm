@@ -4,7 +4,6 @@
     #import <UIKit/UIKit.h>
 #else
     #import <Cocoa/Cocoa.h>
-    #import <Availability.h>
 #endif
 
 #import "MGLAccountManager.h"
@@ -50,12 +49,8 @@
         CGFloat blue;
         CGFloat alpha;
 #if !TARGET_OS_IPHONE
-#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101300
         // CSS uses the sRGB color space.
-        linkColor = [linkColor colorUsingColorSpace:[NSColorSpace sRGBColorSpace]];
-#else
-        linkColor = [linkColor colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
-#endif
+        linkColor = [linkColor colorUsingColorSpaceName:NSDeviceRGBColorSpace];
 #endif
         [linkColor getRed:&red green:&green blue:&blue alpha:&alpha];
         [css appendFormat:
