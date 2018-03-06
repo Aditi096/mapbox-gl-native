@@ -6,7 +6,7 @@
 @interface NSColor (MGLAdditions)
 
 /**
- Converts the color into an mbgl::Color in sRGB space.
+ Converts the color into an mbgl::Color in calibrated RGB space.
  */
 - (mbgl::Color)mgl_color;
 
