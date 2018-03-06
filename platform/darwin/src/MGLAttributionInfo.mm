@@ -49,7 +49,8 @@
         CGFloat blue;
         CGFloat alpha;
 #if !TARGET_OS_IPHONE
-        linkColor = [linkColor colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
+        // CSS uses the sRGB color space.
+        linkColor = [linkColor colorUsingColorSpace:[NSColorSpace sRGBColorSpace]];
 #endif
         [linkColor getRed:&red green:&green blue:&blue alpha:&alpha];
         [css appendFormat:

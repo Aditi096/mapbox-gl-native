@@ -82,7 +82,7 @@
 #else
     NSString *html = (@"<font face=\"Helvetica\" size=\"3\" style=\"font: 12.0px Helvetica\">"
                       @"<a href=\"https://www.mapbox.com/\">Mapbox</a> </font>"
-                      @"<font face=\"Helvetica\" size=\"3\" style=\"font: 12.0px Helvetica; background-color: #ff2600\">GL</font>\n");
+                      @"<font face=\"Helvetica\" size=\"3\" style=\"font: 12.0px Helvetica; background-color: #ff0000\">GL</font>\n");
 #endif
     XCTAssertEqualObjects(@(tileSet.attribution.c_str()), html);
 
