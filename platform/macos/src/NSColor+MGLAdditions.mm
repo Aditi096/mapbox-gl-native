@@ -17,12 +17,12 @@
 }
 
 + (NSColor *)mgl_colorWithColor:(mbgl::Color)color {
-    NSColor *srgbColor = [NSColor colorWithRed:color.r green:color.g blue:color.b alpha:color.a];
     // macOS 10.12 Sierra and below uses calibrated RGB by default.
     if ([NSColor redColor].colorSpaceName == NSCalibratedRGBColorSpace) {
-        srgbColor = [srgbColor colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
+        return [NSColor colorWithCalibratedRed:color.r green:color.g blue:color.b alpha:color.a];
+    } else {
+        return [NSColor colorWithRed:color.r green:color.g blue:color.b alpha:color.a];
     }
-    return srgbColor;
 }
 
 - (mbgl::style::PropertyValue<mbgl::Color>)mgl_colorPropertyValue {
