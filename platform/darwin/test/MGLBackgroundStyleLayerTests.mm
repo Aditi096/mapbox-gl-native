@@ -36,15 +36,6 @@
         NSExpression *constantExpression = [NSExpression expressionWithFormat:@"%@", [MGLColor redColor]];
         layer.backgroundColor = constantExpression;
         mbgl::style::PropertyValue<mbgl::Color> propertyValue = { { 1, 0, 0, 1 } };
-        auto constantValue = rawLayer->getBackgroundColor();
-        XCTAssertEqual(constantValue.asConstant().r, propertyValue.asConstant().r,
-                       @"Setting backgroundColor to a constant value expression should update background-color (red).");
-        XCTAssertEqual(constantValue.asConstant().g, propertyValue.asConstant().g,
-                       @"Setting backgroundColor to a constant value expression should update background-color (green).");
-        XCTAssertEqual(constantValue.asConstant().b, propertyValue.asConstant().b,
-                       @"Setting backgroundColor to a constant value expression should update background-color (blue).");
-        XCTAssertEqual(constantValue.asConstant().a, propertyValue.asConstant().a,
-                       @"Setting backgroundColor to a constant value expression should update background-color (alpha).");
         XCTAssertEqual(rawLayer->getBackgroundColor(), propertyValue,
                        @"Setting backgroundColor to a constant value expression should update background-color.");
         XCTAssertEqualObjects(layer.backgroundColor, constantExpression,
