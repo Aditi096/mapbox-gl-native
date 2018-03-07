@@ -8,7 +8,9 @@
     // The Mapbox Style Specification does not specify a color space, but it is
     // assumed to be sRGB for consistency with CSS.
     NSColor *srgbColor = self;
-    if ([NSColor redColor].colorSpaceName != NSCalibratedRGBColorSpace) {
+    if ([NSColor redColor].colorSpaceName == NSCalibratedRGBColorSpace) {
+        srgbColor = [srgbColor colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
+    } else {
         srgbColor = [srgbColor colorUsingColorSpace:[NSColorSpace sRGBColorSpace]];
     }
     [srgbColor getRed:&r green:&g blue:&b alpha:&a];
