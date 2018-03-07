@@ -50,9 +50,7 @@
         CGFloat alpha;
 #if !TARGET_OS_IPHONE
         // CSS uses the sRGB color space.
-        if ([NSColor redColor].colorSpaceName == NSCalibratedRGBColorSpace) {
-            linkColor = [linkColor colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
-        } else {
+        if (linkColor.colorSpaceName != NSCalibratedRGBColorSpace) {
             linkColor = [linkColor colorUsingColorSpace:[NSColorSpace sRGBColorSpace]];
         }
 #endif
