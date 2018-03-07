@@ -92,12 +92,7 @@
     CGFloat r, g, b, a;
     [color getRed:&r green:&g blue:&b alpha:&a];
     MGLColor *linkColor = [infos[0].title attribute:NSForegroundColorAttributeName atIndex:0 effectiveRange:nil];
-    CGFloat linkR, linkG, linkB, linkA;
-    [linkColor getRed:&linkR green:&linkG blue:&linkB alpha:&linkA];
-    XCTAssertEqual(r, linkR);
-    XCTAssertEqual(g, linkG);
-    XCTAssertEqual(b, linkB);
-    XCTAssertEqual(a, linkA);
+    XCTAssertEqualObjects(linkColor, color);
 }
 
 - (void)testDedupe {
